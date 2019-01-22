@@ -1,0 +1,10 @@
+<ng-container *ngFor="let update of updates; let i = index;">
+  <div style="padding: 10px">
+      <div class="section-header" *ngIf="isNewStage(i)">
+          <span class="section-header_content section-header_title">{{isNewStage(i).title}}</span>
+          <br>
+          <span class="section-header_content section-header_text">{{updates[i-1].dateToDisplay | date:'mediumDate'}}</span>
+        </div>
+    <app-single-update [update]="update"></app-single-update>
+  </div>
+</ng-container>
