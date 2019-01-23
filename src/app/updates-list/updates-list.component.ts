@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UpdatesService } from '../updates.service';
+import { Component, OnChanges, Input } from '@angular/core';
 import { TIMELINE_STAGES, ACTIVITIES } from '../constants';
 import * as moment from 'moment';
 import * as _ from "lodash";
@@ -9,16 +8,12 @@ import * as _ from "lodash";
   templateUrl: './updates-list.component.html',
   styleUrls: ['./updates-list.component.sass']
 })
-export class UpdatesListComponent implements OnInit {
-  public updates = [];
-  constructor(private updatesService: UpdatesService) { }
+export class UpdatesListComponent implements OnChanges {
+  @Input() updates;
+  constructor() { }
 
-  ngOnInit() {
-    // GET UPDATES
-    // FOR A PRODUCTION SCENARIO, WHILE INTEGRATING THIS COMPONENT, UPDATES SHOULD BE PASSED AS INPUT
-    this.updatesService.getUpdates().subscribe(res => {
-      this.formatUpdates(res['activities']);
-    });
+  ngOnChanges() {
+      this.formatUpdates(this.updates);
   }
 
   // FORMAT UPDATES FOR DISPLAY PURPOSES
