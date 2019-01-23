@@ -10,6 +10,7 @@ import { UpdatesListComponent } from './updates-list/updates-list.component';
 import { SingleUpdateComponent } from './single-update/single-update.component';
 import { DisplayCardComponent } from './display-card/display-card.component';
 import { DescriptionBoxComponent } from './description-box/description-box.component';
+import { LineBreakComponent } from './line-break/line-break.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DescriptionBoxComponent } from './description-box/description-box.compo
     UpdatesListComponent,
     SingleUpdateComponent,
     DisplayCardComponent,
-    DescriptionBoxComponent
+    DescriptionBoxComponent,
+    LineBreakComponent
   ],
   imports: [
     BrowserModule,

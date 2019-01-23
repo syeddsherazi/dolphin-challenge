@@ -22,8 +22,8 @@ export class UpdatesListComponent implements OnInit {
   formatUpdates(updates) {
 
     updates.sort(function compare(a, b) { // SORT IN ASCENDING ORDER TO CALCULATE STAGES
-      let dateA = moment(a.activity_date, 'YYYY-MM-DD');
-      let dateB = moment(b.activity_date, 'YYYY-MM-DD');
+      let dateA = +moment(a.activity_date, 'YYYY-MM-DD');
+      let dateB = +moment(b.activity_date, 'YYYY-MM-DD');
       return dateA - dateB;
     });
 
