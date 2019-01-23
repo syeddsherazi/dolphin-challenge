@@ -14,11 +14,14 @@ export class UpdatesListComponent implements OnInit {
   constructor(private updatesService: UpdatesService) { }
 
   ngOnInit() {
+    // GET UPDATES
+    // FOR A PRODUCTION SCENARIO, WHILE INTEGRATING THIS COMPONENT, UPDATES SHOULD BE PASSED AS INPUT
     this.updatesService.getUpdates().subscribe(res => {
       this.formatUpdates(res['activities']);
     });
   }
 
+  // FORMAT UPDATES FOR DISPLAY PURPOSES
   formatUpdates(updates) {
 
     updates.sort(function compare(a, b) { // SORT IN ASCENDING ORDER TO CALCULATE STAGES
@@ -44,15 +47,17 @@ export class UpdatesListComponent implements OnInit {
         }
       }
 
-      update.colour = this.getActivityColour(update);
+      update.colour = this.getActivityColour(update); // GET RELEVANT CLASSES OF ALL UPDATE ACTIVITIES
 
     });
-    this.updates = updates.reverse();
+
+    this.updates = updates.reverse(); // DISPLAY IN DESCENDING ORDER
   }
 
+  // ADDS A STAGE BREAK LINE
   isNewStage(index) {
-    // FIRST ELEMENT TO PRINT
-    if (index == 0) {
+    
+    if (index == 0) { // FIRST ELEMENT TO PRINT
       return null;
     }
 
@@ -62,6 +67,7 @@ export class UpdatesListComponent implements OnInit {
 
   }
 
+  // RETURNS CSS CLASS FOR PASSED UPDATE
   getActivityColour(update) {
     switch (update.activity_type) {
       case ACTIVITIES.ACCEPT:
@@ -73,7 +79,7 @@ export class UpdatesListComponent implements OnInit {
       case ACTIVITIES.CLOSED:
         return 'mojo';
       default:
-        switch (update.order) {
+        switch (update.order) { // FOR NOTE AND CONTACT ACTIVITIES
           case 1:
             return 'desert-flower';
           case 2:
@@ -88,7 +94,8 @@ export class UpdatesListComponent implements OnInit {
     }
   }
 
-  getCardDate(date){ // DATE TO DISPLAY ON CARD
+  // DATE TO DISPLAY ON CARD
+  getCardDate(date){ 
     let currDate = moment();
     let numOfDays = currDate.diff(date, 'days');
     

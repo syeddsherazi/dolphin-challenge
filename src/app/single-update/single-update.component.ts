@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ACTIVITIES } from '../constants';
 
 @Component({
@@ -6,13 +6,10 @@ import { ACTIVITIES } from '../constants';
   templateUrl: './single-update.component.html',
   styleUrls: ['./single-update.component.sass']
 })
-export class SingleUpdateComponent implements OnInit {
+export class SingleUpdateComponent {
   @Input() update;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   getTitle() {
     if (!this.update || !this.update.activity_type) {
@@ -20,7 +17,7 @@ export class SingleUpdateComponent implements OnInit {
     }
 
     for (var property in ACTIVITIES) {
-      if (ACTIVITIES.hasOwnProperty(property) && ACTIVITIES[property]===this.update.activity_type) {
+      if (ACTIVITIES.hasOwnProperty(property) && ACTIVITIES[property] === this.update.activity_type) {
         return property;
       }
     }
