@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
 
+I've used Angular 7.1.0 for this project.
+
 Setup Steps:
 * Install nodejs.
 * Install Angular cli `npm install -g @angular/cli`
@@ -18,6 +20,8 @@ I've divided the required update list into following components:
     * Display Card ( In order to make it reusable in similar requirements )
     * Description Box ( In order to make it reusable in similar requirements )
   * Line Break ( Also reusable, used here for line breaks between stages )
+  
+* I've used sample data to display and placed it in assets folder in file naming updates.json
   
  
 
