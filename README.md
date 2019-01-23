@@ -2,26 +2,47 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
 
-## Development server
+Setup Steps:
+* Install nodejs.
+* Install Angular cli `npm install -g @angular/cli`
+* Clone the repo. Go to project folder and install the required dependencies using following command `npm install`
+* Run the project using following command `ng serve`
+* The served application then can be viewed on `http://localhost:4200/`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Project Structure  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I've divided the required update list into following components:
+* Update List
+  * Single Update
+    * Display Card ( In order to make it reusable in similar requirements )
+    * Description Box ( In order to make it reusable in similar requirements )
+  * Line Break ( Also reusable, used here for line breaks between stages )
+  
+ 
 
-## Build
+## Components Details
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Update List Component:
+  Inputs => updates
+  It just takes in an array of updates as input.
 
-## Running unit tests
+* Single Update Component:
+  Inputs => update
+  Single Update Component takes update object as input, and pass the relevant info further to two reusable components i.e. display card and description box components.
+  
+* Display Card Component:
+   Inputs => title, text, colour
+   Display Card Component takes in as input the title, text to display and colour ( css class ). Can be reusable and used for any such scenario where there is a need to display a card.
+ 
+* Description Box Component:
+   Inputs => text, date
+   Description box component takes in text to display and date. Can also be reusable and be used in other scenarios e.g. showing comments etc.
+   
+* Line Break Component:
+  Inputs => text, title
+  Line Break Component takes in text to display and title.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Integration Instructions
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Pass an array of inputs to Update List Component. It'll handle all the display + ordering + stage breaks via use of reusable components mentioned above.
