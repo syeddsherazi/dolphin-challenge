@@ -50,3 +50,5 @@ I've divided the required update list into following components:
 ## Integration Instructions
 
 * Pass an array of inputs to Update List Component. It'll handle all the display + ordering + stage breaks via use of reusable components mentioned above.
+
+## PS Colour values for aqua ocean were missing in the document.
